@@ -7,42 +7,9 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
-const int PORT = 2011;
+const int PORT = 8080;
 const int buffSize = 1024;
 std::mutex m1, m2;
-
-// void sendData(int clientSocket, char* buffer)
-// {
-//     m1.lock();
-//     std::cin.getline(buffer, buffSize);
-//     if (std::string(buffer) == "exit"){
-//         close(clientSocket);
-//         exit(0);
-//     }
-
-//     int sent = send(clientSocket, buffer, strlen(buffer), 0);
-    
-//     if (sent < 0) {
-//         perror("failed to send");
-//         close(clientSocket);
-//         exit(0);
-//     }
-//     m1.unlock();
-// }
-
-// void receiveData(int clientSocket, char* buffer)
-// {
-//     m2.lock();
-//     int receive = recv(clientSocket, buffer, buffSize - 1, 0);
-//     if (receive < 0) {
-//         perror("failed to receive");
-//         close(clientSocket);
-//         exit(0);
-//         buffer[receive] = '\0';
-//         std::cout << "Server response: " << buffer << std::endl;
-//     }
-//     m2.unlock();
-// }
 
 
 int main() {
