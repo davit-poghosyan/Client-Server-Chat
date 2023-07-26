@@ -47,10 +47,8 @@ int main()
         fd_set readfds;
         FD_ZERO(&readfds);
 
-        // Add the server socket to the readfds set
         FD_SET(serverSocket, &readfds);
 
-        // Add the client sockets to the readfds set
         int max_fd = serverSocket;
         for (const int& clientSock : clientSockets) {
             FD_SET(clientSock, &readfds);
