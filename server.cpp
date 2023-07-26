@@ -8,7 +8,7 @@
 #include <fcntl.h>
 #include <vector>
 
-const int PORT = 2011;
+const int PORT = 8080;
 const int backLog = 6;
 const int buffSize = 1024;
 
