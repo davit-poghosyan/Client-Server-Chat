@@ -41,10 +41,10 @@ int main()
     }
 
     std::vector<int> clientSockets; // Store connected client sockets
+    fd_set readfds;
 
     while (true)
     {
-        fd_set readfds;
         FD_ZERO(&readfds);
 
         FD_SET(serverSocket, &readfds);
