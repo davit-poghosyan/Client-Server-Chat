@@ -25,7 +25,7 @@ int main() {
 
     serverAddr.sin_family = AF_INET;
     serverAddr.sin_port = htons(PORT);
-    inet_pton(AF_INET, "127.0.0.1", &serverAddr.sin_addr); // Use the server IP address here
+    inet_pton(AF_INET, "127.0.0.1", &serverAddr.sin_addr); 
 
     if (connect(clientSocket, (struct sockaddr*)&serverAddr, sizeof(serverAddr)) < 0) {
         perror("connection failed");
