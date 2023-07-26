@@ -28,7 +28,7 @@ int main()
         return 1;
     }
 
-    if (bind(serverSocket, (sockaddr*)&serverAddr, sizeof(serverAddr)) < 0) {
+    if (bind(serverSocket, (sockaddr*)&serverAddr, sizeof(serverAddr)) != 0) {
         perror("binding failed");
         close(serverSocket);
         return 1;
@@ -42,14 +42,14 @@ int main()
 
     std::vector<int> clientSockets; // Store connected client sockets
     fd_set readfds;
-
+    int max_fd;
     while (true)
     {
         FD_ZERO(&readfds);
 
         FD_SET(serverSocket, &readfds);
 
-        int max_fd = serverSocket;
+        max_fd = serverSocket;
         for (const int& clientSock : clientSockets) {
             FD_SET(clientSock, &readfds);
             max_fd = std::max(max_fd, clientSock);
